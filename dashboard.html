@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- ***** TITLE FAVICON ***** -->
+        <link rel="shortcut icon" href="img/favicon.png">
+
+        <!-- ***** FONTAWESOME LIBRARY FOR ICON FONTS. ***** -->
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+
+        <!-- ***** INCLUDE BOOTSTRAP CDN  ***** -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+        <!-- ***** Montserrat FONT PUBLIC ***** -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+        <!-- INCLUDE MAIN STYLE SHEET *****-->
+        <link rel="stylesheet" href="css/style.css">
+
+        <title>FMS</title>
+    </head>
+    <body>
+        
+        <!-- ******** NAVBAR ********* -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="dashboard.html">
+                    <img src="img/logo.png" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="fas fa-align-justify"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="user.html">User</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Region</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Site</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="filter__date">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="filteration__box d-flex align-items-center justify-content-between flex-wrap">
+                            <div class="form-inline date__filter--top mb-4 w-100">
+                                <div class="data__filter--title mr-5"><span><i class="fas fa-calendar-alt"></i></span> Date Filter</div>
+                                <div class="form-group mr-4">
+                                    <input type="radio" id="tab1" name="tab" class="mr-2 tab" checked>
+                                    <label for="tab1">Predefined Date</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="radio" id="tab2" name="tab" class="mr-2 tab">
+                                    <label for="tab2">Custom Date</label>
+                                </div>
+                            </div>
+                            <div class="data__inner on">
+                                <form action="#" class="form__predefined">
+                                    <div class="form-group">
+                                        <label for="PredefinedDate" class="label__check">Predefined Date</label>
+                                        <select class="form-control" id="PredefinedDate">
+                                            <option value="today">Today</option>
+                                            <option value="lhours">Last 24 Hours</option>
+                                            <option value="yesterday">Yesterday</option>
+                                            <option value="week">Week Ago</option>
+                                            <option value="lweek">Last Week</option>
+                                            <option value="lmonth">Last Month</option>
+                                            <option value="lyear">Last Year</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="data__inner">
+                                <form action="#" class="form__custom mb-3">
+                                    <label for="customDate" class="label__check">Custom Date</label>
+                                    <span class="d-block">From</span>
+                                    <div class="form-inline mb-3">
+                                        <input type="date" class="form-control mr-4">
+                                        <input type="time" class="form-control">
+                                    </div>
+                                    <span class="d-block">To</span>
+                                    <div class="form-inline">
+                                        <input type="date" class="form-control mr-4">
+                                        <input type="time" class="form-control">
+                                    </div>
+                                </form>
+                            </div>
+                            <form action="" class="w-50">
+                                <div class="form-inline d-flex justify-content-center align-items-center mb-2">
+                                    <div class="form-group mr-2">
+                                        <label for="region" class="d-block w-100 mb-1">Region</label>
+                                        <select class="form-control" id="region">
+                                            <option value="0">Please Select</option>
+                                            <option>West Delta</option>
+                                            <option>West Cairo</option>
+                                            <option>Canal</option>
+                                            <option>East Delta</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sites" class="d-block w-100 mb-1">Sites</label>
+                                        <select class="form-control" id="sites">
+                                            <option value="0">Please Select</option>
+                                            <option>West Delta</option>
+                                            <option>West Cairo</option>
+                                            <option>Canal</option>
+                                            <option>East Delta</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                            <button class="btn btn__submit px-4 mr-5">Filter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="staticts__boxes">
+            <div class="container">
+                <ul class="row list-unstyled statics__wrapper">
+                    <li class="col">
+                        <a href="distance-driven.html" class="text-white">
+                            <div class="staticts-box">
+                                <div class="counter__top mb-4">1070514</div>
+                                <h5>Distance Driven (KM)</h5>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col">
+                        <a href="driven-dur.html" class="text-white">
+                            <div class="staticts-box">
+                                <div class="counter__top mb-4">40394</div>
+                                <h5>Drivening Duration (KM)</h5>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col">
+                        <a href="trip-count.html" class="text-white">
+                            <div class="staticts-box">
+                                <div class="counter__top mb-4">29722</div>
+                                <h5>Trips Count</h5>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col">
+                        <a href="total-speed.html" class="text-white">
+                            <div class="staticts-box">
+                                <div class="counter__top mb-4">2541</div>
+                                <h5>Total Over Speed</h5>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col">
+                        <a href="total-event.html" class="text-white">
+                            <div class="staticts-box">
+                                <div class="counter__top mb-4">20145</div>
+                                <h5>Total Event Violations</h5>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col">
+                        <a href="rest.html" class="text-white">
+                            <div class="staticts-box">
+                                <div class="counter__top mb-4">118</div>
+                                <h5>Rest Violations</h5>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col">
+                        <a href="power.html" class="text-white">
+                            <div class="staticts-box">
+                                <div class="counter__top mb-4">6321</div>
+                                <h5>Power Faliure</h5>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="staticts">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="st__box">
+                            <canvas id="vehicleStatus"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="st__box">
+                            <canvas id="violationsDis"></canvas>
+                        </div>
+                    </div>
+                    <div class="offset-3"></div>
+                    <div class="col-lg-6 mt-4 col-md-6">
+                        <div class="st__box">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="copyright text-center">
+            <p>All Copyright Reserved By <a href="">3hand For Web Design</a></p>
+        </div>
+        
+
+
+
+        <!-- ================== *INCLUDE JAVASCRIPT FILES*. =================== -->
+        
+        <!-- ***** INCLUDE JQUERY LIBRARY ***** -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <!-- ***** INCLUDE POPPER FOR DYNAMICALLY POSITIONS IN BOOTSTRAP ***** -->
+        <script src="js/popper.min.js"></script>
+        <!-- ***** INCLUDE BOOTSTRAP FRAMEWORK ***** -->
+        <script src="js/bootstrap.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+        <!-- **** INCLUDE MAIN FILE.JS ***** -->
+        <script src="js/index.js"></script>
+        <script>
+            let myChart = document.getElementById('myChart').getContext('2d')
+
+            let massPopChart = new Chart(myChart, {
+                type: 'bar', //bar, horizontalBar, Pir, line, doughnut, radar, polarArea
+                data: {
+                    labels: ['CFI Deployment', 'PCE Deployment', 'PCE Deployment Amerya', 'PCE Deployment Tanta', 'Violations'],
+                    datasets:[{
+                        label: 'Violations',
+                        data:[
+                            10,
+                            03,
+                            05,
+                            06,
+                            01,
+                        ],
+                        backgroundColor: '#1CACF4'
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Continous Working Violations',
+                    },
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            fontColor: '#222'
+                        }
+                    }
+                }
+            })
+        </script>
+        <script>
+            let vehicleStatus = document.getElementById('vehicleStatus').getContext('2d')
+
+            let massPopChart2 = new Chart(vehicleStatus, {
+                type: 'doughnut', //bar, horizontalBar, Pir, line, doughnut, radar, polarArea
+                data: {
+                    labels: ['Idie', 'Moving', 'Parking'],
+                    datasets: [{
+                        label: 'vehicleStatus',
+                        data: [
+                            40,
+                            194,
+                            273,
+                        ],
+                        backgroundColor: [
+                            '#EC0C1C',
+                            '#2A9C58',
+                            '#F38810',
+                        ]
+
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'vehicleStatus',
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            fontColor: '#222',
+                            usePointStyle: true,
+                        }
+                    }
+                }
+            })
+        </script>
+        <script>
+            let violationsDis = document.getElementById('violationsDis').getContext('2d')
+
+            let massPopChart3 = new Chart(violationsDis, {
+                type: 'doughnut', //bar, horizontalBar, Pir, line, doughnut, radar, polarArea
+                data: {
+                    labels: ['Driver Seat belt', 'Marsh accleration', 'Over Speeding'],
+                    datasets: [{
+                        label: 'Violations Distribution',
+                        data: [
+                            8049,
+                            32555,
+                            72802,
+                        ],
+                        backgroundColor: [
+                            '#D9283A',
+                            '#FCAF17',
+                            '#FF596D',
+                        ]
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Violations Distribution',
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            fontColor: '#222',
+                            usePointStyle: true,
+                        }
+                        
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

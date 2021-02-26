@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- ***** TITLE FAVICON ***** -->
+        <link rel="shortcut icon" href="img/favicon.png">
+
+        <!-- ***** FONTAWESOME LIBRARY FOR ICON FONTS. ***** -->
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/dropify.min.css">
+
+        <!-- ***** INCLUDE BOOTSTRAP CDN  ***** -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+        <!-- ***** Montserrat FONT PUBLIC ***** -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+        <!-- INCLUDE MAIN STYLE SHEET *****-->
+        <link rel="stylesheet" href="css/style.css">
+
+        <title>FMS</title>
+    </head>
+    <body>
+        
+        <!-- ******** NAVBAR ********* -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="dashboard.html">
+                    <img src="img/logo.png" alt="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="fas fa-align-justify"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="user.html">User</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Region</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Site</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="add__user">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form action="#" class="form__add--user mt-5">
+                            <h5 class="mb-3"><span><i class="far fa-user"></i></span> Add New User</h5>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <input type="file" id="input-file-now" class="dropify" name="user_defualt_image" data-id="1" data-name="user_defualt_image">
+                                    </div>
+                                </div>
+                                <div class="offset-4"></div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control mr-3" placeholder="User Name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control mr-3" placeholder="User Name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="password" class="form-control mr-3" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control mr-3" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" placeholder="Phone">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control mr-3" placeholder="Manager">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                          <option>Permission Templates</option>
+                                          <option>2</option>
+                                          <option>3</option>
+                                          <option>4</option>
+                                          <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <textarea name="note" id="" cols="30" rows="3" placeholder="Note" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input class="form-check-input ml-0" type="checkbox" id="inlineCheckbox1" value="option1">
+                                        <label class="form-check-label" for="inlineCheckbox1">Changed Password at First Login</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn__submit">Add User</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="hidden__section"></div>
+
+        <footer class="copyright text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>All Copyright Reserved By <a href="">3hand For Web Design</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- ================== *INCLUDE JAVASCRIPT FILES*. =================== -->
+        
+        <!-- ***** INCLUDE JQUERY LIBRARY ***** -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <!-- ***** INCLUDE POPPER FOR DYNAMICALLY POSITIONS IN BOOTSTRAP ***** -->
+        <script src="js/popper.min.js"></script>
+        <!-- ***** INCLUDE BOOTSTRAP FRAMEWORK ***** -->
+        <script src="js/bootstrap.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+        <script src="js/dropify.min.js"></script>
+        <!-- **** INCLUDE MAIN FILE.JS ***** -->
+        <script src="js/index.js"></script>
+</body>
+</html>
