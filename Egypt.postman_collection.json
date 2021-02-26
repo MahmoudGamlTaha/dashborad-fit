@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "c756b71e-539f-4044-95b3-be8fdaf52d70",
+		"name": "Egypt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Distance Driven Region Wise",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "SklZTubT2Eidb0Y8VHPlQJBiFLm5mabP",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"EntityName\":\"DistanceDrivenRegionWise\",\"Fields\":[\"Region\",\"Distance\"],\"Filter\":[],\"Parameter\":[{\"Input\":\"@StartDate\",\"Default\":\"'2021-01-01'\",\"Type\":\"date\"},{\"Input\":\"@EndDate\",\"Default\":\"'2021-02-01'\",\"Type\":\"date\"}],\"OrderBy\":[],\"TopClause\":0}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egypt.fms-tech.com/FMSAPIEgypt/api/getdata/getResult",
+					"protocol": "https",
+					"host": [
+						"egypt",
+						"fms-tech",
+						"com"
+					],
+					"path": [
+						"FMSAPIEgypt",
+						"api",
+						"getdata",
+						"getResult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Distance Driven Region Site Wise",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "SklZTubT2Eidb0Y8VHPlQJBiFLm5mabP",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"EntityName\":\"DistanceDrivenRegionSiteWise\",\"Fields\":[\"Region\",\"Site\",\"Distance\"],\"Filter\":[],\"Parameter\":[{\"Input\":\"@StartDate\",\"Default\":\"2021-01-01\",\"Type\":\"date\"},{\"Input\":\"@EndDate\",\"Default\":\"2021-02-01\",\"Type\":\"date\"}],\"OrderBy\":[],\"TopClause\":0}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egypt.fms-tech.com/FMSAPIEgypt/api/getdata/getResult",
+					"protocol": "https",
+					"host": [
+						"egypt",
+						"fms-tech",
+						"com"
+					],
+					"path": [
+						"FMSAPIEgypt",
+						"api",
+						"getdata",
+						"getResult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Violation Distribution Region Site Wise",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "SklZTubT2Eidb0Y8VHPlQJBiFLm5mabP",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"EntityName\": \"ViolationDistributionRegionSiteWise\",\r\n    \"Fields\": [\r\n        \"Region\",\r\n        \"Site\",\r\n        \"Violation\",\r\n        \"Occurrences\"\r\n    ],\r\n    \"Filter\": [],\r\n    \"Parameter\": [\r\n        {\r\n            \"Input\": \"@StartDate\",\r\n            \"Default\": \"'01-01-2021'\",\r\n            \"Type\": \"date\"\r\n        },\r\n        {\r\n            \"Input\": \"@EndDate\",\r\n            \"Default\": \"'01-02-2021'\",\r\n            \"Type\": \"date\"\r\n        }\r\n    ],\r\n    \"OrderBy\": [],\r\n    \"TopClause\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egypt.fms-tech.com/FMSAPIEgypt/api/getdata/getCsvResult",
+					"protocol": "https",
+					"host": [
+						"egypt",
+						"fms-tech",
+						"com"
+					],
+					"path": [
+						"FMSAPIEgypt",
+						"api",
+						"getdata",
+						"getCsvResult"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

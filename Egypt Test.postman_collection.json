@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "a3749c62-02c1-4310-bb17-79a29ece7d4c",
+		"name": "Egypt Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Distance Driven Region Wise",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Vaas4fDW2Eh8szfKCYadTYQL8SqTfYn3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"EntityName\": \"DistanceDrivenRegionWise\",\r\n    \"Fields\": [\r\n        \"Region\",\r\n        \"Distance\"\r\n    ],\r\n    \"Filter\": [],\r\n    \"Parameter\": [\r\n        {\r\n            \"Input\": \"@StartDate\",\r\n            \"Default\": \"'2021-01-01'\",\r\n            \"Type\": \"date\"\r\n        },\r\n        {\r\n            \"Input\": \"@EndDate\",\r\n            \"Default\": \"'2021-02-01'\",\r\n            \"Type\": \"date\"\r\n        }\r\n    ],\r\n    \"OrderBy\": [],\r\n    \"TopClause\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egypt.fms-tech.com/FMSAPIEgypt/api/getdata/getResult",
+					"protocol": "https",
+					"host": [
+						"egypt",
+						"fms-tech",
+						"com"
+					],
+					"path": [
+						"FMSAPIEgypt",
+						"api",
+						"getdata",
+						"getResult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Distance Driven Region Site Wise",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "2C-sx8TX2EimBimZz2uFTLgVXGmswI6Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"EntityName\": \"DistanceDrivenRegionSiteWise\",\r\n    \"Fields\": [\r\n        \"Region\",\r\n        \"Site\",\r\n        \"Distance\"\r\n    ],\r\n    \"Filter\": [\r\n        {\r\n            \"Display\": \"Region\",\r\n            \"Predicate\": \"LIKE 'West Cairo'\"\r\n        }\r\n    ],\r\n    \"Parameter\": [\r\n        {\r\n            \"Input\": \"@StartDate\",\r\n            \"Default\": \"'2021-01-01'\",\r\n            \"Type\": \"date\"\r\n        },\r\n        {\r\n            \"Input\": \"@EndDate\",\r\n            \"Default\": \"'2021-02-01'\",\r\n            \"Type\": \"date\"\r\n        }\r\n    ],\r\n    \"OrderBy\": [\"Site\"],\r\n    \"TopClause\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egypt.fms-tech.com/FMSAPIEgypt/api/getdata/getResult",
+					"protocol": "https",
+					"host": [
+						"egypt",
+						"fms-tech",
+						"com"
+					],
+					"path": [
+						"FMSAPIEgypt",
+						"api",
+						"getdata",
+						"getResult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Driving Duration Region Site Wise",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "SklZTubT2Eidb0Y8VHPlQJBiFLm5mabP",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"EntityName\": \"DrivingDurationRegionSiteWise\",\r\n    \"Fields\": [\r\n        \"Region\",\r\n        \"Site\",\r\n        \"DrivingDuration\"\r\n    ],\r\n    \"Filter\": [],\r\n    \"Parameter\": [\r\n        {\r\n            \"Input\": \"@StartDate\",\r\n            \"Default\": \"'01-01-2021'\",\r\n            \"Type\": \"date\"\r\n        },\r\n        {\r\n            \"Input\": \"@EndDate\",\r\n            \"Default\": \"'01-02-2021'\",\r\n            \"Type\": \"date\"\r\n        }\r\n    ],\r\n    \"OrderBy\": [],\r\n    \"TopClause\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://egypt.fms-tech.com/FMSAPIEgypt/api/getdata/getResult",
+					"protocol": "https",
+					"host": [
+						"egypt",
+						"fms-tech",
+						"com"
+					],
+					"path": [
+						"FMSAPIEgypt",
+						"api",
+						"getdata",
+						"getResult"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
