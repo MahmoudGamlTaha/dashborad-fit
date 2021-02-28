@@ -138,7 +138,7 @@
                     <li class="col">
                         <a href="distance-driven.html" class="text-white">
                             <div class="staticts-box">
-                                <div class="counter__top mb-4">1070514</div>
+                                <div id="Distance" class="counter__top mb-4"></div>
                                 <h5>Distance Driven (KM)</h5>
                             </div>
                         </a>
@@ -146,7 +146,7 @@
                     <li class="col">
                         <a href="driven-dur.html" class="text-white">
                             <div class="staticts-box">
-                                <div class="counter__top mb-4">40394</div>
+                                <div id="DrivingDuration" class="counter__top mb-4"></div>
                                 <h5>Drivening Duration (KM)</h5>
                             </div>
                         </a>
@@ -154,7 +154,7 @@
                     <li class="col">
                         <a href="trip-count.html" class="text-white">
                             <div class="staticts-box">
-                                <div class="counter__top mb-4">29722</div>
+                                <div id="Trips" class="counter__top mb-4"></div>
                                 <h5>Trips Count</h5>
                             </div>
                         </a>
@@ -162,7 +162,7 @@
                     <li class="col">
                         <a href="total-speed.html" class="text-white">
                             <div class="staticts-box">
-                                <div class="counter__top mb-4">2541</div>
+                                <div id="overSpeed" class="counter__top mb-4"></div>
                                 <h5>Total Over Speed</h5>
                             </div>
                         </a>
@@ -170,7 +170,7 @@
                     <li class="col">
                         <a href="total-event.html" class="text-white">
                             <div class="staticts-box">
-                                <div class="counter__top mb-4">20145</div>
+                                <div id="eventViolation" class="counter__top mb-4"></div>
                                 <h5>Total Event Violations</h5>
                             </div>
                         </a>
@@ -178,7 +178,7 @@
                     <li class="col">
                         <a href="rest.html" class="text-white">
                             <div class="staticts-box">
-                                <div class="counter__top mb-4">118</div>
+                                <div id="restViolations" class="counter__top mb-4"></div>
                                 <h5>Rest Violations</h5>
                             </div>
                         </a>
@@ -186,7 +186,7 @@
                     <li class="col">
                         <a href="power.html" class="text-white">
                             <div class="staticts-box">
-                                <div class="counter__top mb-4">6321</div>
+                                <div id="powerFailure" class="counter__top mb-4"></div>
                                 <h5>Power Faliure</h5>
                             </div>
                         </a>
@@ -237,9 +237,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
         <!-- **** INCLUDE MAIN FILE.JS ***** -->
         <script src="js/index.js"></script>
+        <script src="js/dashboard-3.js"></script>
         <script>
             let myChart = document.getElementById('myChart').getContext('2d')
-
             let massPopChart = new Chart(myChart, {
                 type: 'bar', //bar, horizontalBar, Pir, line, doughnut, radar, polarArea
                 data: {
@@ -266,80 +266,6 @@
                         labels: {
                             fontColor: '#222'
                         }
-                    }
-                }
-            })
-        </script>
-        <script>
-            let vehicleStatus = document.getElementById('vehicleStatus').getContext('2d')
-
-            let massPopChart2 = new Chart(vehicleStatus, {
-                type: 'doughnut', //bar, horizontalBar, Pir, line, doughnut, radar, polarArea
-                data: {
-                    labels: ['Idie', 'Moving', 'Parking'],
-                    datasets: [{
-                        label: 'vehicleStatus',
-                        data: [
-                            40,
-                            194,
-                            273,
-                        ],
-                        backgroundColor: [
-                            '#EC0C1C',
-                            '#2A9C58',
-                            '#F38810',
-                        ]
-
-                    }]
-                },
-                options: {
-                    title: {
-                        display: true,
-                        text: 'vehicleStatus',
-                    },
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            fontColor: '#222',
-                            usePointStyle: true,
-                        }
-                    }
-                }
-            })
-        </script>
-        <script>
-            let violationsDis = document.getElementById('violationsDis').getContext('2d')
-
-            let massPopChart3 = new Chart(violationsDis, {
-                type: 'doughnut', //bar, horizontalBar, Pir, line, doughnut, radar, polarArea
-                data: {
-                    labels: ['Driver Seat belt', 'Marsh accleration', 'Over Speeding'],
-                    datasets: [{
-                        label: 'Violations Distribution',
-                        data: [
-                            8049,
-                            32555,
-                            72802,
-                        ],
-                        backgroundColor: [
-                            '#D9283A',
-                            '#FCAF17',
-                            '#FF596D',
-                        ]
-                    }]
-                },
-                options: {
-                    title: {
-                        display: true,
-                        text: 'Violations Distribution',
-                    },
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            fontColor: '#222',
-                            usePointStyle: true,
-                        }
-                        
                     }
                 }
             })
