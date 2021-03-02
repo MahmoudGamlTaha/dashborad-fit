@@ -75,6 +75,7 @@
                                     <div class="form-group">
                                         <label for="PredefinedDate" class="label__check">Predefined Date</label>
                                         <select class="form-control" id="PredefinedDate">
+                                            <option value="0">Please Select</option>
                                             <option value="today">Today</option>
                                             <option value="lhours">Last 24 Hours</option>
                                             <option value="yesterday">Yesterday</option>
@@ -91,13 +92,13 @@
                                     <label for="customDate" class="label__check">Custom Date</label>
                                     <span class="d-block">From</span>
                                     <div class="form-inline mb-3">
-                                        <input type="date" class="form-control mr-4">
-                                        <input type="time" class="form-control">
+                                        <input type="date" class="form-control mr-4" id="from-date">
+                                        <input type="time" class="form-control" id="from-time">
                                     </div>
                                     <span class="d-block">To</span>
                                     <div class="form-inline">
-                                        <input type="date" class="form-control mr-4">
-                                        <input type="time" class="form-control">
+                                        <input type="date" class="form-control mr-4" id="to-date">
+                                        <input type="time" class="form-control" id="to-time">
                                     </div>
                                 </form>
                             </div>
@@ -107,8 +108,8 @@
                                         <label for="region" class="d-block w-100 mb-1">Region</label>
                                         <select class="form-control" id="region">
                                             <option value="0">Please Select</option>
-                                            <option>West Delta</option>
                                             <option>West Cairo</option>
+                                            <option>West Delta</option>
                                             <option>Canal</option>
                                             <option>East Delta</option>
                                         </select>
@@ -117,15 +118,16 @@
                                         <label for="sites" class="d-block w-100 mb-1">Sites</label>
                                         <select class="form-control" id="sites">
                                             <option value="0">Please Select</option>
-                                            <option>West Delta</option>
+                                            <option>CFI Deployment October New</option>
                                             <option>West Cairo</option>
+                                            <option>West Delta</option>
                                             <option>Canal</option>
                                             <option>East Delta</option>
                                         </select>
                                     </div>
                                 </div>
                             </form>
-                            <button class="btn btn__submit px-4 mr-5">Filter</button>
+                            <button class="btn btn__submit px-4 mr-5 filter-btn">Filter</button>
                         </div>
                     </div>
                 </div>
@@ -136,7 +138,7 @@
             <div class="container">
                 <ul class="row list-unstyled statics__wrapper">
                     <li class="col">
-                        <a href="distance-driven.html" class="text-white">
+                        <a data-index="distance-driven.html" class="text-white Distance">
                             <div class="staticts-box">
                                 <div id="Distance" class="counter__top mb-4"></div>
                                 <h5>Distance Driven (KM)</h5>
@@ -144,7 +146,7 @@
                         </a>
                     </li>
                     <li class="col">
-                        <a href="driven-dur.html" class="text-white">
+                        <a data-index="driven-dur.html" class="text-white DrivingDuration">
                             <div class="staticts-box">
                                 <div id="DrivingDuration" class="counter__top mb-4"></div>
                                 <h5>Drivening Duration (KM)</h5>
@@ -152,7 +154,7 @@
                         </a>
                     </li>
                     <li class="col">
-                        <a href="trip-count.html" class="text-white">
+                        <a data-index="trip-count.html" class="text-white Trips">
                             <div class="staticts-box">
                                 <div id="Trips" class="counter__top mb-4"></div>
                                 <h5>Trips Count</h5>
@@ -160,7 +162,7 @@
                         </a>
                     </li>
                     <li class="col">
-                        <a href="total-speed.html" class="text-white">
+                        <a data-index="total-speed.html" class="text-white overSpeed">
                             <div class="staticts-box">
                                 <div id="overSpeed" class="counter__top mb-4"></div>
                                 <h5>Total Over Speed</h5>
@@ -168,7 +170,7 @@
                         </a>
                     </li>
                     <li class="col">
-                        <a href="total-event.html" class="text-white">
+                        <a data-index="total-event.html" class="text-white eventViolation">
                             <div class="staticts-box">
                                 <div id="eventViolation" class="counter__top mb-4"></div>
                                 <h5>Total Event Violations</h5>
@@ -176,7 +178,7 @@
                         </a>
                     </li>
                     <li class="col">
-                        <a href="rest.html" class="text-white">
+                        <a data-index="rest.html" class="text-white restViolations">
                             <div class="staticts-box">
                                 <div id="restViolations" class="counter__top mb-4"></div>
                                 <h5>Rest Violations</h5>
@@ -184,7 +186,7 @@
                         </a>
                     </li>
                     <li class="col">
-                        <a href="power.html" class="text-white">
+                        <a data-index="power.html" class="text-white powerFailure">
                             <div class="staticts-box">
                                 <div id="powerFailure" class="counter__top mb-4"></div>
                                 <h5>Power Faliure</h5>
@@ -238,37 +240,5 @@
         <!-- **** INCLUDE MAIN FILE.JS ***** -->
         <script src="js/index.js"></script>
         <script src="js/dashboard-3.js"></script>
-        <script>
-            let myChart = document.getElementById('myChart').getContext('2d')
-            let massPopChart = new Chart(myChart, {
-                type: 'bar', //bar, horizontalBar, Pir, line, doughnut, radar, polarArea
-                data: {
-                    labels: ['CFI Deployment', 'PCE Deployment', 'PCE Deployment Amerya', 'PCE Deployment Tanta', 'Violations'],
-                    datasets:[{
-                        label: 'Violations',
-                        data:[
-                            10,
-                            03,
-                            05,
-                            06,
-                            01,
-                        ],
-                        backgroundColor: '#1CACF4'
-                    }]
-                },
-                options: {
-                    title: {
-                        display: true,
-                        text: 'Continous Working Violations',
-                    },
-                    legend: {
-                        position: 'right',
-                        labels: {
-                            fontColor: '#222'
-                        }
-                    }
-                }
-            })
-        </script>
     </body>
 </html>

@@ -11,89 +11,43 @@
 
     today = mm + '-' + dd + '-' + yyyy;
 
-    let pageEntityOverall = [{
-        "distance-driven.html": {'DistanceDrivenOverall' : 'Distance'},
-        "driven-dur.html":      {'DrivingDurationOverall' : 'DrivingDuration'},
-        "trip-count.html":      {'TripsCountOverall' : 'Trips'},
-        "total-speed.html":     {'OverspeedCountOverall' : 'Occurrences'},
-        "total-event.html":     {'ViolationsCountOverall' : 'Occurrences'},
-        "rest.html":            {'RestViolationOverall' : 'Occurrences'},
-        "power.html":           {'PowerFailureOverall' : 'Occurrences'}
-    }];
-    $.each(pageEntityOverall, function (k, v) {
-        if (v[pageName]) {
-            $.each(v[pageName], function (k, v) {
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
 
-                function mainCount() {
-                    $.ajax({
-                        url: "https://gentle-sands-79502.herokuapp.com/https://egypt.fms-tech.com/FMSAPIEgypt/api/getdata/getResult",
-                        method: "POST",
-                        dataType: "json",
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader('Authorization', 'Bearer SklZTubT2Eidb0Y8VHPlQJBiFLm5mabP');
-                        },
-                        data: {
-                            EntityName: k,
-                            Fields: v,
-                            Filter: [],
-                            Parameter: [
-                                {
-                                    "Input": "@StartDate",
-                                    "Default": "'01-01-2021'",
-                                    "Type": "date"
-                                },
-                                {
-                                    "Input": "@EndDate",
-                                    "Default": "'"+today+"'",
-                                    "Type": "date"
-                                }
-                            ],
-                            OrderBy: [],
-                            TopClause: 0
-                        },
-                        success: function (data) {
-                            let test = data.result[0][v];
-                            $("#" + v).html(test);
-                            if (k == 'OverspeedCountOverall') {
-                                let overSpeed = data.result[0]['Occ'];
-                                $("#overSpeed").html(overSpeed);
-                            }
-                            if (k == 'ViolationsCountOverall') {
-                                let eventViolation = data.result[0]['Occ'];
-                                $("#eventViolation").html(eventViolation);
-                            }
-                            if (k == 'RestViolationOverall') {
-                                let restViolations = data.result[0]['RestViolations'];
-                                $("#restViolations").html(restViolations);
-                            }
-                            if (k == 'PowerFailureOverall') {
-                                let powerFailure = data.result[0]['Occ'];
-                                $("#powerFailure").html(powerFailure);
-                            }
-                        }
-                    });
-                };
-                mainCount();
-            });
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return typeof sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
         }
-    });
+        return false;
+    };
+
+    let overAll = getUrlParameter('num');
+    let v = getUrlParameter('v');
+    let ename = $("#name-x").html();
+
+    $('#'+v).html(overAll);
+
 
     let pageEntity = [{
-        "distance-driven.html": {"DistanceDrivenRegionWise": ["Region", "Distance", 1]},
-        "driven-dur.html": {"DrivingDurationRegionWise": ["Region", "DrivingDuration", 2]},
-        "trip-count.html":{"TripsCountRegionWise":["Region", "Trips", 3]},
-        "total-speed.html":{"OverspeedCountRegionWise":["Region", "Occurrences", 3]},
+        "distance-driven.html": {"DistanceDrivenRegionWise": ["Region", "Distance", 0]},
+        "driven-dur.html": {"DrivingDurationRegionWise": ["Region", "DrivingDuration", 0]},
+        "trip-count.html":{"TripsCountRegionWise":["Region", "Trips", 0]},
+        "total-speed.html":{"OverspeedCountRegionWise":["Region", "Occurrences", 2]},
         "total-event.html":{"ViolationsCountRegionWise":["Region", "Occurrences", 3]},
-        "rest.html":{"RestViolationRegionWise":["Region", "Occurrences", 3]},
-        "power.html":{"PowerFailureRegionWise":["Region", "Occurrences", 3]}
+        "rest.html":{"RestViolationRegionWise":["Region", "Occurrences", 1]},
+        "power.html":{"PowerFailureRegionWise":["Region", "Occurrences", 0]}
     }];
 
     $.each(pageEntity, function (k, v){
         if(v[pageName])
         {
-
             $.each(v[pageName], function (k, v){
-                console.log(123);
                 $.ajax({
                     url: "https://gentle-sands-79502.herokuapp.com/https://egypt.fms-tech.com/FMSAPIEgypt/api/getdata/getResult",
                     method: "POST",
@@ -124,13 +78,12 @@
                         TopClause: 0
                     },
                     success: function (data) {
-                        console.log(k);
-                        console.log(data['result']);
-                        console.log(v[0]);
-                        console.log(v[1]);
                         let r = data['result'];
+                        //let href = "#";
                         for (let i = 0; i < r.length; i++) {
-                            let href = r[i][v[0]].replace(/ /g, '').toLowerCase()+"-"+v[2]+".html";
+                            //if(v[2] !== 0) {
+                              let  href = "westcairo-2.html?r="+r[i][v[0]]+"&eN="+k+"&num="+r[i][v[1]]+"&enum="+overAll+"&ename="+ename;
+                            //}
                             let html = "<li>\n" +
                                 "                                <a href=\""+ href +"\">\n" +
                                 "                                    <div class=\"str__col--box d-flex flex-column justify-content-between align-items-center\">\n" +

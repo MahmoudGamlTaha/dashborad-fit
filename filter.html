@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ***** TITLE FAVICON ***** -->
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <!-- ***** FONTAWESOME LIBRARY FOR ICON FONTS. ***** -->
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+
+    <!-- ***** INCLUDE BOOTSTRAP CDN  ***** -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- ***** Montserrat FONT PUBLIC ***** -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- INCLUDE MAIN STYLE SHEET *****-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>FMS</title>
+</head>
+<body>
+
+<!-- ******** NAVBAR ********* -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="dashboard.html">
+            <img src="img/logo.png" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span><i class="fas fa-align-justify"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="user.html">User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Region</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Site</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="staticts__boxes">
+    <div class="container">
+        <div style="margin-top:5%" class="row">
+            <div class="row col-lg-12">
+                <div class="box__top--wrapper bg__sky text-white d-flex flex-column justify-content-between mx-auto mb-3 regionName">
+                </div>
+            </div>
+        </div>
+        <ul style="margin-top: 3%" class="row list-unstyled statics__wrapper">
+            <li class="col">
+                <a data-index="distance-driven.html" class="text-white Distance">
+                    <div class="staticts-box">
+                        <div id="Distance" class="counter__top mb-4"></div>
+                        <h5>Distance Driven (KM)</h5>
+                    </div>
+                </a>
+            </li>
+            <li class="col">
+                <a data-index="driven-dur.html" class="text-white DrivingDuration">
+                    <div class="staticts-box">
+                        <div id="DrivingDuration" class="counter__top mb-4"></div>
+                        <h5>Drivening Duration (KM)</h5>
+                    </div>
+                </a>
+            </li>
+            <li class="col">
+                <a data-index="trip-count.html" class="text-white Trips">
+                    <div class="staticts-box">
+                        <div id="Trips" class="counter__top mb-4"></div>
+                        <h5>Trips Count</h5>
+                    </div>
+                </a>
+            </li>
+            <li class="col">
+                <a data-index="total-speed.html" class="text-white overSpeed">
+                    <div class="staticts-box">
+                        <div id="overSpeed" class="counter__top mb-4"></div>
+                        <h5>Total Over Speed</h5>
+                    </div>
+                </a>
+            </li>
+            <li class="col">
+                <a data-index="total-event.html" class="text-white eventViolation">
+                    <div class="staticts-box">
+                        <div id="eventViolation" class="counter__top mb-4"></div>
+                        <h5>Total Event Violations</h5>
+                    </div>
+                </a>
+            </li>
+            <li class="col">
+                <a data-index="rest.html" class="text-white restViolations">
+                    <div class="staticts-box">
+                        <div id="restViolations" class="counter__top mb-4"></div>
+                        <h5>Rest Violations</h5>
+                    </div>
+                </a>
+            </li>
+            <li class="col">
+                <a data-index="power.html" class="text-white powerFailure">
+                    <div class="staticts-box">
+                        <div id="powerFailure" class="counter__top mb-4"></div>
+                        <h5>Power Faliure</h5>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<div class="copyright text-center" style="margin-top: 15%">
+    <p>All Copyright Reserved By <a href="">3hand For Web Design</a></p>
+</div>
+
+
+
+
+<!-- ================== *INCLUDE JAVASCRIPT FILES*. =================== -->
+
+<!-- ***** INCLUDE JQUERY LIBRARY ***** -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<!-- ***** INCLUDE POPPER FOR DYNAMICALLY POSITIONS IN BOOTSTRAP ***** -->
+<script src="js/popper.min.js"></script>
+<!-- ***** INCLUDE BOOTSTRAP FRAMEWORK ***** -->
+<script src="js/bootstrap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<!-- **** INCLUDE MAIN FILE.JS ***** -->
+<script src="js/index.js"></script>
+<script src="js/filter.js"></script>
+</body>
+</html>
