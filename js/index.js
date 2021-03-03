@@ -1,5 +1,18 @@
 $(document).ready(function () {
 
+    let salt = "$2a$08$b0MHMsT3ErLoTRjpjzsCie";
+    $('#submit').on('click', function () {
+        name = $('#nm').val();
+        hashpw($('#password').val(), salt, result, function() {});
+        function result(newnum){
+            if(newnum === '$2a$08$b0MHMsT3ErLoTRjpjzsCieW3cg.D3e9TSvGCk8FEEPOeb5FR2pO7O' && name === 'admin')
+            {
+                sessionStorage.setItem('num',newnum);
+                window.location.replace("/dashborad-fit/dashboard.html");
+            }
+        }
+    })
+
     $('[name=tab]').each(function (i, d) {
         var p = $(this).prop('checked');
         //   console.log(p);
@@ -23,10 +36,8 @@ $(document).ready(function () {
             'default': 'Drag and drop a file here or click',
             'replace': 'Drag and drop or click to replace',
             'remove':  'Remove',
-            'error':   'Ooops, something wrong happended.'
+            'error':   'Oops, something wrong happened.'
         }
     });
-
-
 
 })
