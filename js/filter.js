@@ -1,12 +1,7 @@
 
-    let date = new Date();
-    let dd = String(date.getDate()).padStart(2, '0');
-    let mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
-    let yyyy = date.getFullYear();
-
-    today = mm + '-' + dd + '-' + yyyy;
-    startDate = '01-01-2021';
-    endDate = today;
+    today = moment().format('MM-DD-YYYY');
+    startDate = today;
+    endDate = today+' 23:59:59';
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = window.location.search.substring(1),
             sURLVariables = sPageURL.split('&'),
@@ -45,32 +40,39 @@
     if(preDate != 0)
     {
         $(".regionName").append("<h5 class=\"text-uppercase primary-heading__inner\">Date:  " + preDate + "</h5>\n");
-        //console.log(preDate);
-        ysterday = new Date(Date.now() - 864e5);
-        let dd = String(ysterday.getDate()).padStart(2, '0');
-        let mm = String(ysterday.getMonth() + 1).padStart(2, '0'); //January is 0!
-        let yyyy = ysterday.getFullYear();
 
-        ysterday = mm + '-' + dd + '-' + yyyy;
+        ysterday = moment().subtract(1, 'days').format('MM-DD-YYYY');
         //console.log(ysterday);
         if(preDate == 'today')
         {
             startDate = today;
-            endDate = today;
-        }else if(preDate == 'yesterday' && preDate == 'lhours')
+            endDate = today+' 23:59:59';
+        }else if(preDate == 'yesterday' || preDate == 'lhours')
         {
             startDate = ysterday;
-            endDate = ysterday;
+            endDate = ysterday+' 23:59:59';
+        }else if(preDate == 'lweek')
+        {
+            startDate = moment().subtract('days', 7).format('MM-DD-YYYY');
+        }else if(preDate == 'lmonth')
+        {
+            startDate = moment().subtract(1, 'months').format('MM-DD-YYYY');
+        }else if(preDate == 'lyear')
+        {
+            startDate = moment().subtract(1, 'years').format('MM-DD-YYYY');
         }
+
     }else {
         preDate = ' ';
     }
 
-    if(fDate != '' && tDate != '')
+    if(fDate != '' && tDate != '' && preDate == 0)
     {
         startDate = fDate;
-        endDate = tDate;
+        endDate = tDate+' 23:59:59';
     }
+    $(".regionName").append("<h5 class=\"text-uppercase primary-heading__inner\">Start Date :  " + startDate + "</h5>\n");
+    $(".regionName").append("<h5 class=\"text-uppercase primary-heading__inner\">End Date :  " + endDate + "</h5>\n");
 
 
     let pageEntity = {
@@ -83,66 +85,72 @@
         "PowerFailureRegionSiteWise":["Region", "Site", "Occurrences"]
     };
 
-    $.each(pageEntity, function (k, v){
+    function c() {
+        $.each(pageEntity, function (k, v) {
 
-        $.ajax({
-            url: "https://gentle-sands-79502.herokuapp.com/https://egypt.fms-tech.com/FMSAPIEgypt/api/getdata/getResult",
-            method: "POST",
-            dataType: "json",
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', 'Bearer SklZTubT2Eidb0Y8VHPlQJBiFLm5mabP');
-            },
-            data: {
-                EntityName: k,
-                Fields: [
-                    v[0],
-                    v[1],
-                    v[2]
-                ],
-                Filter: [
-                    {
-                        "Display": "Region",
-                        "Predicate": "LIKE '%"+r+"%'"
-                    },
-                    {
-                        "Display": "Site",
-                        "Predicate":"LIKE '%"+s+"%'"
+            $.ajax({
+                url: "https://gentle-sands-79502.herokuapp.com/https://egypt.fms-tech.com/FMSAPIEgypt/api/getdata/getResult",
+                method: "POST",
+                dataType: "json",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', 'Bearer SklZTubT2Eidb0Y8VHPlQJBiFLm5mabP');
+                },
+                data: {
+                    EntityName: k,
+                    Fields: [
+                        v[0],
+                        v[1],
+                        v[2]
+                    ],
+                    Filter: [
+                        {
+                            "Display": "Region",
+                            "Predicate": "LIKE '%" + r + "%'"
+                        },
+                        {
+                            "Display": "Site",
+                            "Predicate": "LIKE '%" + s + "%'"
+                        }
+                    ],
+                    Parameter: [
+                        {
+                            "Input": "@StartDate",
+                            "Default": "'" + startDate + "'",
+                            "Type": "date"
+                        },
+                        {
+                            "Input": "@EndDate",
+                            "Default": "'" + endDate + "'",
+                            "Type": "date"
+                        }
+                    ],
+                    OrderBy: [],
+                    TopClause: 0
+                },
+                success: function (data) {
+                    let r = data['result'];
+                    let overAll = 0;
+                    for (let i = 0; i < r.length; i++) {
+                        overAll += r[i][v[2]];
                     }
-                ],
-                Parameter: [
-                    {
-                        "Input": "@StartDate",
-                        "Default": "'"+startDate+"'",
-                        "Type": "date"
-                    },
-                    {
-                        "Input": "@EndDate",
-                        "Default": "'"+endDate+"'",
-                        "Type": "date"
+                    $("#" + v[2]).html(overAll);
+                    if (k == 'OverspeedCountRegionSiteWise') {
+                        $("#overSpeed").html(overAll);
                     }
-                ],
-                OrderBy: [],
-                TopClause: 0
-            },
-            success: function (data) {
-                let r = data['result'];
-                let overAll = 0;
-                for(let i=0;i<r.length;i++) {
-                    overAll += r[i][v[2]];
+                    if (k == 'ViolationsCountRegionSiteWise') {
+                        $("#eventViolation").html(overAll);
+                    }
+                    if (k == 'RestViolationRegionSiteWise') {
+                        $("#restViolations").html(overAll);
+                    }
+                    if (k == 'PowerFailureRegionSiteWise') {
+                        $("#powerFailure").html(overAll);
+                    }
                 }
-                $("#"+v[2]).html(overAll);
-                if(k == 'OverspeedCountRegionSiteWise') {
-                    $("#overSpeed").html(overAll);
-                }
-                if(k == 'ViolationsCountRegionSiteWise') {
-                    $("#eventViolation").html(overAll);
-                }
-                if(k == 'RestViolationRegionSiteWise') {
-                    $("#restViolations").html(overAll);
-                }
-                if(k == 'PowerFailureRegionSiteWise') {
-                    $("#powerFailure").html(overAll);
-                }
-            }
+            });
         });
-    });
+    }
+    (function p() {
+        c();
+        setTimeout(p, 60000);
+    })();

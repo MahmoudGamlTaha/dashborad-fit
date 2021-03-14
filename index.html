@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/chkindx.js"></script>
     <!-- ***** TITLE FAVICON ***** -->
     <link rel="shortcut icon" href="img/favicon.png">
 
@@ -50,16 +51,16 @@
                 </div>
                 <div class="form-group">
                     <span class="form__icon--left"><i class="far fa-user"></i></span>
-                    <input type="text" class="form-control" required placeholder="Example:support">
+                    <input type="text" id="nm" class="form-control" required placeholder="Example:support">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="form-group">
                     <span class="form__icon--left"><i class="fas fa-lock"></i></span>
-                    <input type="password" class="form-control" placeholder="Password" required>
+                    <input type="password" id="password" class="form-control" placeholder="Password" required>
                 </div>
-                <a href="dashboard.html" class="btn btn__submit w-100" type="submit"><span><i class="fas fa-sign-in-alt"></i></span> Login</a>
+                <a class="btn btn__submit w-100" id="submit" type="submit"><span><i class="fas fa-sign-in-alt"></i></span> Login</a>
             </form>
         </div>
     </div>
@@ -75,6 +76,8 @@
     <!-- ***** INCLUDE BOOTSTRAP FRAMEWORK ***** -->
     <script src="js/bootstrap.js"></script>
     <!-- **** INCLUDE MAIN FILE.JS ***** -->
+    <script src="js/dropify.min.js"></script>
+    <script src="js/bCrypt.js"></script>
     <script src="js/index.js"></script>
 </body>
 
