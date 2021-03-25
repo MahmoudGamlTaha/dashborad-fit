@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/check.js"></script>
         <!-- ***** TITLE FAVICON ***** -->
         <link rel="shortcut icon" href="img/favicon.png">
 
@@ -47,7 +48,7 @@
                             <a class="nav-link" href="#">Site</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Logout</a>
+                            <a class="nav-link" onclick="check();" href="/dashborad-fit/index.html">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -79,7 +80,6 @@
                                             <option value="today">Today</option>
                                             <option value="lhours">Last 24 Hours</option>
                                             <option value="yesterday">Yesterday</option>
-                                            <option value="week">Week Ago</option>
                                             <option value="lweek">Last Week</option>
                                             <option value="lmonth">Last Month</option>
                                             <option value="lyear">Last Year</option>
@@ -109,20 +109,43 @@
                                         <select class="form-control" id="region">
                                             <option value="0">Please Select</option>
                                             <option>West Cairo</option>
-                                            <option>West Delta</option>
-                                            <option>Canal</option>
-                                            <option>East Delta</option>
+                                            <option>Alexandria</option>
+                                            <option>Upper Egypt</option>
+                                            <option>East Cairo</option>
+											<option>Delta</option>
+											<option>Canal</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="sites" class="d-block w-100 mb-1">Sites</label>
                                         <select class="form-control" id="sites">
                                             <option value="0">Please Select</option>
+										<option disabled style="color:red">West Cairo</option>
                                             <option>CFI Deployment October New</option>
-                                            <option>West Cairo</option>
-                                            <option>West Delta</option>
-                                            <option>Canal</option>
-                                            <option>East Delta</option>
+											 <option>CFI Deployment Obour New</option>
+                                             <option>CFI Deployment</option>
+											<option>CFI Sales 6-October New</option>
+                                            <option>CFI Sales Abu Sir New</option>
+											<option>CFI West</option>
+											<option>PCE Sales Harm New</option>
+											<option>PCE Sales Imbaba New</option>
+											<option>PCE Deployment Tantaa New</option>
+										<option disabled style="color:red">Alexandria</option>
+											   <option>PCE Deployment Amrya</option>
+											   <option>PCE SALES Damanhur</option>
+											   <option>PCE SALES Kafr el-Dewar</option>
+										<option disabled style="color:red">East Cairo</option>
+											 <option>CFI Sales Katameya New</option>
+											 <option>CFI Sales Tanash New</option>
+											 </option>PCE Deployment Nase City New</option>
+									   <option disabled style="color:red">Upper Egypt</option>
+									          </option>PCE Deployment Minyaa</option>
+											 <option>PCE Sales Bani Sweef</option>
+											 <option>PCE Sales Faiyum</option>
+											 <option>PCE Sales Qena</option>
+											 <option>PCE Sales Sohag</option>
+											 <option>PCE Sales Minyaa</option>
+											 
                                         </select>
                                     </div>
                                 </div>
@@ -222,14 +245,14 @@
         </section>
 
         <div class="copyright text-center">
-            <p>All Copyright Reserved By <a href="">3hand For Web Design</a></p>
+            <p>All Copyright Reserved By <a href="https://highcoder.com">highcoder</a></p>
         </div>
         
 
 
 
         <!-- ================== *INCLUDE JAVASCRIPT FILES*. =================== -->
-        
+
         <!-- ***** INCLUDE JQUERY LIBRARY ***** -->
         <script src="js/jquery-3.3.1.min.js"></script>
         <!-- ***** INCLUDE POPPER FOR DYNAMICALLY POSITIONS IN BOOTSTRAP ***** -->
@@ -238,6 +261,7 @@
         <script src="js/bootstrap.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
         <!-- **** INCLUDE MAIN FILE.JS ***** -->
+        <script src="js/dropify.min.js"></script>
         <script src="js/index.js"></script>
         <script src="js/dashboard-3.js"></script>
     </body>

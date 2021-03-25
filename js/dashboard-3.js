@@ -9,7 +9,7 @@ let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 let yyyy = today.getFullYear();
 
 today = mm + '-' + dd + '-' + yyyy;
-
+endToday = mm + '-' + dd + '-' + yyyy+' 23:59:59';
 if(pageName == "dashboard.html") {
 
     let entities = [{
@@ -38,12 +38,12 @@ if(pageName == "dashboard.html") {
                     Parameter: [
                         {
                             "Input": "@StartDate",
-                            "Default": "'01-01-2021'",
+                            "Default": "'"+today+"'",
                             "Type": "date"
                         },
                         {
                             "Input": "@EndDate",
-                            "Default": "'"+today+"'",
+                            "Default": "'"+endToday+"'",
                             "Type": "date"
                         }
                     ],
@@ -110,12 +110,12 @@ if(pageName == "dashboard.html") {
                 Parameter: [
                     {
                         "Input": "@StartDate",
-                        "Default": "'01-01-2021'",
+                        "Default": "'"+today+"'",
                         "Type": "date"
                     },
                     {
                         "Input": "@EndDate",
-                        "Default": "'"+today+"'",
+                        "Default": "'"+endToday+"'",
                         "Type": "date"
                     }
                 ],
@@ -191,12 +191,12 @@ if(pageName == "dashboard.html") {
                 Parameter: [
                     {
                         "Input": "@StartDate",
-                        "Default": "'01-01-2021'",
+                         "Default": "'"+today+"'",
                         "Type": "date"
                     },
                     {
                         "Input": "@EndDate",
-                        "Default": "'"+today+"'",
+                        "Default": "'"+endToday+"'",
                         "Type": "date"
                     }
                 ],
@@ -216,7 +216,7 @@ if(pageName == "dashboard.html") {
                 let massPopChart3 = new Chart(violationsDis, {
                     type: 'doughnut', //bar, horizontalBar, Pir, line, doughnut, radar, polarArea
                     data: {
-                        labels: ['Driver Seat belt', 'Marsh accleration', 'Over Speeding'],
+                        labels: ['Driver Seat belt', 'Harsh accleration', 'Over Speeding'],
                         datasets: [{
                             label: 'Violations Distribution',
                             data: [
@@ -249,7 +249,7 @@ if(pageName == "dashboard.html") {
             }
         });
     }
-    function chart() {
+    function chart() { // column chart
         $.ajax({
             url: "https://gentle-sands-79502.herokuapp.com/https://egypt.fms-tech.com/FMSAPIEgypt/api/getdata/getResult",
             method: "POST",
@@ -268,12 +268,12 @@ if(pageName == "dashboard.html") {
                 Parameter: [
                     {
                         "Input": "@StartDate",
-                        "Default": "'01-01-2021'",
+                        "Default": "'"+today+"'",
                         "Type": "date"
                     },
                     {
                         "Input": "@EndDate",
-                        "Default": "'"+today+"'",
+                        "Default": "'"+endToday+"'",
                         "Type": "date"
                     }
                 ],
@@ -287,6 +287,7 @@ if(pageName == "dashboard.html") {
                 let area1 = 0;
                 let area2 = 0;
                 for(let i=0;i<r.length;i++) {
+					console.log(data['result']);
                     if (r[i]['Site'].includes("PCE")) {
                         totalPCE += r[i]["Occurrences"];
                     }
@@ -359,7 +360,7 @@ if(pageName == "dashboard.html") {
             }
             setTimeout(t, 3000);
         }else{
-            return window.open('/dashborad-fit/filter.html?r=' + region + '&s=' + sites + '&preDate=' + PredefinedDate + '&fdate=' + fDate + '&tdate=' + tDate, '_self');
+            return window.open('./filter.html?r=' + region + '&s=' + sites + '&preDate=' + PredefinedDate + '&fdate=' + fDate + '&tdate=' + tDate, '_self');
         }
     });
 }
